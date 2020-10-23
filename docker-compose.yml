@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    httpd:
+        container_name: https
+        ports:
+            - '80:80'
+            - '443:443'
+        volumes:
+            - './source:/usr/local/apache2/htdocs'
+            - './conf/httpd.conf:/usr/local/apache2/conf/httpd.conf'
+            - './conf/server.crt:/usr/local/apache2/conf/server.crt'
+            - './conf/server.key:/usr/local/apache2/conf/server.key'
+        image: 'httpd:2.4'
